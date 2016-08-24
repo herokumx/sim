@@ -3,7 +3,7 @@
   "version": "2.0.0",
   "description": "Xively (https://xively.com/) Product Simulator",
   "scripts": {
-    "build": "npm run clean && NODE_ENV=production && MY_ENV=testvar webpack",
+    "build": "npm run clean && NODE_ENV=production",
     "build:watch": "npm run clean && webpack --watch",
     "clean": "rimraf public",
     "dev": "npm run clean && parallelshell 'npm run start:watch' 'webpack --watch'",
