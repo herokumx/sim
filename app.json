@@ -11,6 +11,9 @@
   "logo": "https://ws.cubbyusercontent.com/p/_344ac3084abc47d4b0e52faf56494903/xively_by-LMI-under_habanero_logo.png/1505747296",
   "image": "https://ws.cubbyusercontent.com/p/_344ac3084abc47d4b0e52faf56494903/xively_by-LMI-under_habanero_logo.png/1505747296",
   "env": {
+    "SALESFORCE_USER": "me@baliles.com",
+    "SALESFORCE_PASSWORD": "salesforce1",
+    "SALESFORCE_TOKEN": "EWO0CaEnejQ19uM9wdRPZoTCc",
     "HABANERO_EMBEDDED": "true"
     },
   "addons": [

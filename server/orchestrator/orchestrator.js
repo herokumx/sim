@@ -25,9 +25,9 @@ function gotoHabanero (req, res) {
       accountId: config.account.accountId,
       XIVELY_ACCOUNT_USER_IDM_ID: config.account.idmUserId,
       XIVELY_ACCOUNT_USER_BP_ID: config.account.blueprintUserId,
-      SALESFORCE_USER: 'me@baliles.com',
-      SALESFORCE_PASSWORD: 'salesforce1',
-      SALESFORCE_TOKEN: 'EWO0CaEnejQ19uM9wdRPZoTCc'
+      SALESFORCE_USER: config.salesforce.user,
+      SALESFORCE_PASSWORD: config.salesforce.pass,
+      SALESFORCE_TOKEN: config.salesforce.token
     }
   }).then((loginResult) => {
     const ticket = new Buffer(loginResult).toString('base64')
