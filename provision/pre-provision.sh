@@ -34,3 +34,4 @@ heroku addons:create heroku-redis:hobby-dev
 
 # Write environment vars to .env file
 heroku config -s | tee "$script_dir/../.env"
+heroku config -s | MY_ENV_CAR "test"
