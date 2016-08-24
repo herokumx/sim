@@ -16,7 +16,8 @@
     "test": "npm run test-server && npm run test-client",
     "test-client": "karma start --single-run",
     "test-client:watch": "karma start",
-    "test-server": "NODE_ENV=test mocha --require co-mocha 'server/**/*.spec.js'"
+    "test-server": "NODE_ENV=test mocha --require co-mocha 'server/**/*.spec.js'",
+    "heroku-postbuild": "heroku config:set MY_CUSTOM_VALUE=foobar"
   },
   "repository": {
     "type": "git",
