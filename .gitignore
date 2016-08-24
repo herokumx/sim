@@ -1,0 +1,10 @@
+public/
+provision/temp-heroku-app
+.env
+coverage/
+
+node_modules/
+*.log
+
+.idea/
+.vscode/

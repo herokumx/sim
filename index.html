@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>IOT Simulator by herokumx</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">IOT Simulator</h1>
+      <h2 class="project-tagline"></h2>
+      <a href="https://github.com/herokumx/demo-iot-simulator" class="btn">View on GitHub</a>
+      <a href="https://github.com/herokumx/demo-iot-simulator/zipball/master" class="btn">Download .zip</a>
+      <a href="https://github.com/herokumx/demo-iot-simulator/tarball/master" class="btn">Download .tar.gz</a>
+    </section>
+
+    <section class="main-content">
+      <h1>
+<a id="simulator" class="anchor" href="#simulator" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Simulator</h1>
+
+<p>This is a sample application demonstrating the Xively platform.</p>
+
+<h3>
+<a id="installation" class="anchor" href="#installation" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Installation</h3>
+
+<p>The simplest and recommended method of installation is through Heroku. Simply click the button below.</p>
+
+<p><a href="https://heroku.com/deploy?template=https://github.com/herokumx/demo-iot-simulator"><img src="https://www.herokucdn.com/deploy/button.png" alt="Deploy"></a></p>
+
+<h3>
+<a id="local-installation" class="anchor" href="#local-installation" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Local Installation</h3>
+
+<p>If you would like to run the app locally, check your <a href="#system-requirements">system requirements</a>, clone this
+repository, and run the following from the command line:</p>
+
+<div class="highlight highlight-source-shell"><pre><span class="pl-c"># You only need to run the following two commands once</span>
+npm install
+npm run provision
+<span class="pl-c"># This must be run each time you want to work on the project</span>
+npm run dev</pre></div>
+
+<p>Navigate to <a href="http://localhost:5000/">http://localhost:5000/</a> in your browser to access the app. The application will automatically refresh as you make changes to the source code.</p>
+
+<h3>
+<a id="heroku-installation" class="anchor" href="#heroku-installation" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Heroku Installation</h3>
+
+<p>If you are making changes to this repo or a fork of it you'll need commit the built client files to deploy it. You can follow this script as an example.</p>
+
+<div class="highlight highlight-source-shell"><pre>git clone git@github.com:my-github-user/simulator.git
+<span class="pl-c1">cd</span> simulator
+git checkout -b my-changes
+<span class="pl-c"># make your changes</span>
+npm run dev
+<span class="pl-c"># test your changes</span>
+git add <span class="pl-c1">.</span>
+git commit
+git checkout -b my-changes-heroku
+npm run build
+<span class="pl-c"># public is normally ignored in git</span>
+git add public --force
+git commit -m <span class="pl-s"><span class="pl-pds">"</span>Build<span class="pl-pds">"</span></span></pre></div>
+
+<p>Then you can push to your heroku instance from a heroku-cli set remote.</p>
+
+<div class="highlight highlight-source-shell"><pre>git push heroku my-changes-heroku:master --force</pre></div>
+
+<p>Or deploy a from scratch copy by pushing to your fork and deploying with <a href="https://heroku.com/deploy">https://heroku.com/deploy</a>.</p>
+
+<div class="highlight highlight-source-shell"><pre>git push origin my-changes-heroku
+<span class="pl-c"># https://heroku.com/deploy?template=https://github.com/my-github-user/simulator/tree/my-changes-heroku</span></pre></div>
+
+<h4>
+<a id="updating-data-flow-dependencies-habanero" class="anchor" href="#updating-data-flow-dependencies-habanero" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Updating Data-Flow Dependencies (habanero)</h4>
+
+<p>Since <a href="https://www.npmjs.com/package/node-red-habanero">data flow</a> is a seperate application, to obtain updates from that repository, you can run the following commands to force a rebuild,
+replacing <code>my-changes-heroku</code> with the branch of the simulator you are using.</p>
+
+<div class="highlight highlight-source-shell"><pre>heroku config:<span class="pl-c1">set</span> NODE_MODULES_CACHE=<span class="pl-c1">false</span>
+git commit -am <span class="pl-s"><span class="pl-pds">'</span>disable node_modules cache force rebuild<span class="pl-pds">'</span></span> --allow-empty
+git push heroku my-changes-heroku:master --force</pre></div>
+
+<h3>
+<a id="developer-scripts" class="anchor" href="#developer-scripts" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Developer Scripts</h3>
+
+<p>There are a handful of npm scripts to aid in development.</p>
+
+<ul>
+<li>
+<code>build</code> – build the client app to the <code>public</code>
+</li>
+<li>
+<code>build:watch</code> – build the client app to the <code>public</code> and watch for changes</li>
+<li>
+<code>clean</code> – delete the <code>public</code> folder</li>
+<li>
+<code>dev</code> – run a development version of the app and watch for changes</li>
+<li>
+<code>lint</code> – lint JavaScript files</li>
+<li>
+<code>local-provision</code> – configure the app to run locally</li>
+<li>
+<code>start</code> – start the Node server</li>
+<li>
+<code>start:watch</code> – start the Node server and restart on file changes</li>
+<li>
+<code>syncdb</code> – sync database, create tables</li>
+<li>
+<code>test</code> – run all tests</li>
+<li>
+<code>test-client</code> – run client tests</li>
+<li>
+<code>test-client:watch</code> – run client tests and watch for changes</li>
+<li>
+<code>test-server</code> – run server tests</li>
+</ul>
+
+<h3>
+<a id="configuration" class="anchor" href="#configuration" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Configuration</h3>
+
+<h4>
+<a id="environment-variables" class="anchor" href="#environment-variables" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Environment Variables</h4>
+
+<ul>
+<li>XIVELY_IDM_HOST</li>
+<li>XIVELY_TIMESERIES_HOST</li>
+<li>XIVELY_BROKER_HOST</li>
+<li>XIVELY_ACCOUNT_ID</li>
+<li>XIVELY_IDM_EMAIL_ADDRESS</li>
+<li>XIVELY_IDM_PASSWORD</li>
+<li>XIVELY_MQTT_USERNAME</li>
+<li>XIVELY_MQTT_PASSWORD</li>
+<li>HABANERO_EMBEDDED</li>
+</ul>
+
+<h3>
+<a id="salesforce-integration" class="anchor" href="#salesforce-integration" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Salesforce Integration</h3>
+
+<p>This application can be used to demonstrate Xively's integration with Salesforce.
+To try that out, set up your Salesforce account as follows:</p>
+
+<ol>
+<li>Create a Salesforce account</li>
+<li>Install this Salesforce package:
+<a href="https://login.salesforce.com/packaging/installPackage.apexp?p0=04t36000000HRMn">https://login.salesforce.com/packaging/installPackage.apexp?p0=04t36000000HRMn</a>
+</li>
+</ol>
+
+<p>Now that your Salesforce account is set up, it's time to configure the application.
+This process is different depending on whether you're setting things up locally
+or if you'll be running it on Heroku.</p>
+
+<h4>
+<a id="heroku" class="anchor" href="#heroku" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Heroku</h4>
+
+<ol>
+<li>Log into Heroku</li>
+<li>Navigate to this application</li>
+<li>Insert your Salesforce credentials into the dashboard, and save the changes</li>
+<li>When the application restarts, it will upload a Contact and the devices as Assets
+to Salesforce</li>
+</ol>
+
+<h4>
+<a id="local-development" class="anchor" href="#local-development" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Local development</h4>
+
+<ol>
+<li>Be sure that you've provisioned the app before. If you have, then you will have
+a <code>.env</code> file.</li>
+<li>Open up <code>.env</code> and add three new fields:
+
+<ul>
+<li>
+<code>SALESFORCE_USER</code>: your Salesforce username. This is generally an email.</li>
+<li>
+<code>SALESFORCE_PASSWORD</code>: your Salesforce password</li>
+<li>
+<code>SALESFORCE_TOKEN</code>: your Salesforce token. To find this, follow
+the guide <a href="https://success.salesforce.com/answers?id=90630000000glADAAY">here</a>
+</li>
+</ul>
+</li>
+<li>Restart the Node application. It will upload a Contact and the devices as Assets
+to your Salesforce account</li>
+</ol>
+
+<h3>
+<a id="branches-and-release-notes" class="anchor" href="#branches-and-release-notes" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Branches and Release notes</h3>
+
+<h4>
+<a id="new-development" class="anchor" href="#new-development" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>New development</h4>
+
+<p>All new development must be done outside of the release workflow branches (<code>staging</code>/<code>beta</code>/<code>master</code>).  Small changes can be done directly in the <code>development</code> branch, while feature work should be done in individual feature branches.  Individual feature branches should be reviewed before they are merged back into the main <code>development</code> branch.</p>
+
+<p>Pull Requests are not to be merged into <code>master</code> without first being confirmed by QA.
+After your PR is reviewed, merge your PR into the <code>staging</code> branch. Then cut a new build release into <code>staging-build</code>.</p>
+
+<h4>
+<a id="staging" class="anchor" href="#staging" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Staging</h4>
+
+<p><a href="https://heroku.com/deploy?template=https://github.com/xively/simulator/tree/staging-build">Deploy the staging branch</a></p>
+
+<p>(NOTE: You will have to run <code>npm run build</code> &amp; add the public folder by force <code>git add public --force</code>)</p>
+
+<h4>
+<a id="beta" class="anchor" href="#beta" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Beta</h4>
+
+<p>The <code>beta</code> branch represents the latest and greatest stable code available for public consumption, with the expectation that it may or may not be production-approved. When a <code>staging</code> branch has been QA'd and no regressions/outstanding issues are found, then the <code>staging</code> branch can be built directly into the <code>beta</code> branch. After you've done that, tag <code>beta</code> with the latest version number.</p>
+
+<div class="highlight highlight-source-shell"><pre>git tag -a v1.1 -m <span class="pl-s"><span class="pl-pds">"</span>write a note about what this version includes<span class="pl-pds">"</span></span>
+git push origin v1.1</pre></div>
+
+<p><a href="https://heroku.com/deploy?template=https://github.com/xively/simulator/tree/beta">Deploy the beta branch.</a></p>
+
+<h4>
+<a id="master" class="anchor" href="#master" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Master</h4>
+
+<p>The <code>master</code> branch is the latest production-approved code that is the standard for general use.  This will be periodically updated from the <code>beta</code> branch by stakeholder request, with all accompanying documentation.  The update is performed by copying the <code>beta</code> branch over to <code>master</code>, as both are directly built branches.</p>
+
+<h4>
+<a id="release-notes" class="anchor" href="#release-notes" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Release notes</h4>
+
+<p>If you want to include release notes between each tagged version, you can get a list of commits using this command:</p>
+
+<div class="highlight highlight-source-shell"><pre>git log v1.0..v1.1</pre></div>
+
+<p>This will give you all the commits made between those 2 versions.</p>
+
+<p>Tags are like branches, so you can also do that with any branch. For example if you want to see how many commits <code>staging</code> is ahead of <code>master</code>:</p>
+
+<div class="highlight highlight-source-shell"><pre>git log master..staging</pre></div>
+
+<h3>
+<a id="system-requirements" class="anchor" href="#system-requirements" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>System Requirements</h3>
+
+<ul>
+<li>
+<p>Heroku &amp; Heroku CLI</p>
+
+<ul>
+<li>heroku account with creditcard attached to account</li>
+</ul>
+</li>
+<li>
+<p>Node &gt;4</p>
+
+<ul>
+<li>
+<a href="http://nodejs.org">http://nodejs.org</a> (All Platforms)</li>
+<li>
+<code>brew install node</code> via <a href="http://brew.sh/">Homebrew</a> (OSX)</li>
+<li>
+<code>apt-get/yum install node</code> (Linux)</li>
+</ul>
+</li>
+</ul>
+
+      <footer class="site-footer">
+        <span class="site-footer-owner"><a href="https://github.com/herokumx/demo-iot-simulator">IOT Simulator</a> is maintained by <a href="https://github.com/herokumx">herokumx</a>.</span>
+
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
+      </footer>
+
+    </section>
+
+  
+  </body>
+</html>

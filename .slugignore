@@ -1,0 +1,10 @@
+# Ignore these files in the "slug" that Heroku creates. These files aren't needed in
+# production. For more, see: https://devcenter.heroku.com/articles/slug-compiler
+
+# folders
+client
+
+# root files
+karma.conf.js
+webpack.config.js
+README.md

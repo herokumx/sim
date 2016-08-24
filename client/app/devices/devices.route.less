@@ -1,0 +1,66 @@
+@gray: #8F9394;
+@blue: #17BAE3;
+
+.devices {
+  .content {
+    overflow-x: auto;
+    margin-bottom: 60px;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+
+    thead {
+      color: @gray;
+
+      th {
+        cursor: pointer;
+        font-weight: 400;
+
+        &.active {
+          color: @blue;
+
+          &::before {
+            content: '↓';
+            display: inline-block;
+            margin-top: -2px;
+          }
+
+          &.reverse::before {
+            content: '↑';
+          }
+        }
+      }
+    }
+
+    tbody {
+      tr {
+        cursor: pointer;
+
+        &:hover {
+          color: @blue;
+        }
+      }
+    }
+
+    th, td {
+      padding: 1.2em 0.4em;
+      border-bottom: 1px solid #777;
+      text-align: center;
+
+      &:first-child, &:nth-child(2) {
+        text-align: left;
+      }
+
+      .secondary {
+        font-size: 0.7em;
+        color: @gray;
+      }
+
+      svg {
+        height: 20px;
+      }
+    }
+  }
+}
