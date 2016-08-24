@@ -53,7 +53,7 @@ Or deploy a from scratch copy by pushing to your fork and deploying with https:/
 
 ```sh
 git push origin my-changes-heroku
-# https://heroku.com/deploy?template=https://github.com/my-github-user/simulator/tree/my-changes-heroku
+# https://heroku.com/deploy?template=https://github.com/herokumx/sim
 ```
 
 #### Updating Data-Flow Dependencies (habanero)
@@ -143,7 +143,7 @@ After your PR is reviewed, merge your PR into the `staging` branch. Then cut a n
 
 #### Staging
 
-[Deploy the staging branch](https://heroku.com/deploy?template=https://github.com/xively/simulator/tree/staging-build)
+[Deploy the staging branch](https://heroku.com/deploy?template=https://github.com/herokumx/sim)
 
 (NOTE: You will have to run `npm run build` & add the public folder by force `git add public --force`)
 
@@ -156,7 +156,7 @@ git tag -a v1.1 -m "write a note about what this version includes"
 git push origin v1.1
 ```
 
-[Deploy the beta branch.](https://heroku.com/deploy?template=https://github.com/xively/simulator/tree/beta)
+[Deploy the beta branch.](https://heroku.com/deploy?template=https://github.com/herokumx/sim)
 
 #### Master
 
